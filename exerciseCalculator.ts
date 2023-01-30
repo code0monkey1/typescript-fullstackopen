@@ -10,33 +10,33 @@ interface IResult{
 
  }
 
- const isValidNumbersArray=(array:string[]) =>{
+//  const isValidNumbersArray=(array:string[]) =>{
      
-     for (let num of array)
-        if (isNaN(Number(num)))return false;
+//      for (const num of array)
+//         if (isNaN(Number(num)))return false;
 
-     return true;
- }
+//      return true;
+//  };
 
- const parseInput = (args:Array<string>):Array<number> => {
+//  const parseInput = (args:Array<string>):Array<number> => {
 
-  if (args.length<3)
-    throw new Error(`Invalid input length: ${args.length}`)
+//   if (args.length<3)
+//     throw new Error(`Invalid input length: ${args.length}`);
 
-  const numbersArray=args.slice(2,)
+//   const numbersArray=args.slice(2,);
 
-  if (!isValidNumbersArray(numbersArray))
-       throw new Error(`Not a numbers only Array`)
+//   if (!isValidNumbersArray(numbersArray))
+//        throw new Error(`Not a numbers only Array`);
 
-   return numbersArray.map(number_string => Number(number_string))
+//    return numbersArray.map(number_string => Number(number_string));
   
- }
+//  };
 
-const calculateExercises = (exercise:Array<number>):IResult=>{
+ export const calculateExercises = (exercise:Array<number>):IResult=>{
     
-     const exerciseDays=exercise.slice(1)
+     const exerciseDays=exercise.slice(1);
      
-     const target=exercise[0]
+     const target=exercise[0];
      
     return { 
       periodLength: exerciseDays.length,
@@ -46,23 +46,23 @@ const calculateExercises = (exercise:Array<number>):IResult=>{
       ratingDescription: 'not too bad but could be better',
       target,
       average: exerciseDays.reduce((acc, exercise) =>acc+exercise,0)/exerciseDays.length*1.0
-  }
+  };
   
-}
+};
 
-try{
+// try{
 
-  const numbersArray = parseInput(process.argv)
+//   const numbersArray = parseInput(process.argv);
 
-  console.log( calculateExercises(numbersArray))
+//   console.log( calculateExercises(numbersArray));
 
-}catch(error:unknown){
+// }catch(error:unknown){
 
-  let errorMessage="Error occurred : "
+//   let errorMessage="Error occurred : ";
 
-  if (error instanceof Error){
-        errorMessage+=error.message
-  }
+//   if (error instanceof Error){
+//         errorMessage+=error.message;
+//   }
 
-  console.log(errorMessage)
-}
+//   console.log(errorMessage);
+// }
